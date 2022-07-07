@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="./media/italogo.png">
+</head>
+<body class="text-center">
+    <div class="container"style="min-height:100vh">
+        <div class="row align-items-center justify-content-center" style="min-height:80vh">
+            <div class="w-50 bg-dark p-5">
+                <form data-form-type="login" method="POST" action="..\traitement\signin.html">
+                    <a href="../index.html">
+                        <img class="mb-4" src="..\media\italogo.html" alt="Logo" width="72" height="57">
+                    </a>
+                    <h1 class="h3 mb-3 fw-normal text-white">S'inscrire</h1>
+                    
+                    <div class="form-floating">
+                        <input name="username" type="text" class="form-control" placeholder="Username"  data-form-type="username">
+                        <label for="floatingPassword">Nom d'utilisateur</label>
+                    </div>
+                    <div class="form-floating">
+                        <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" data-form-type="email">
+                        <label for="floatingInput">Addresse Email</label>
+                    </div>
+                    <div class="form-floating">
+                        <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password"  data-form-type="password"">
+                        <label for="floatingPassword">Mot de passe</label>
+                    </div>
+                    <div class="form-floating">
+                        <input name="passwordVerif" type="password" class="form-control" id="floatingPassword" placeholder="Password Verification"  data-form-type="password"">
+                        <label for="floatingPassword">Verification mot de passe</label>
+                    </div>
+                    <hr>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit" data-form-type="action,signin">Se connecter</button>
+                </form>
+            </div>
+        </div>
+</div>
+</body>
+</html>
+<script>
+    $('body').on('submit', 'form', function(e) {
+        console.log($(this).data('clicked'));
+        return false;
+    });
+</script>
