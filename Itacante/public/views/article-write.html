@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<body>
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header bg-warning">
+                        <h2 class="my-3">Écrire un article</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="id-form-ckeditor" onsubmit="event.preventDefault(); save_article();">
+                            <textarea name="content" id="editor">
+                                
+                            </textarea>
+                            <p><button class="btn btn-success mt-2" type="submit" id="submit">Submit</button></p>
+                        </script>
+                    </div>
+                    <div class="card-footer">
+                        <div class="input-group mb-3">
+                            <input pattern="[a-zA-Z]+" type="text" class="form-control" placeholder="Hashtag" aria-label="Hashtag à ajouter">
+                            <button class="btn btn-outline-secondary" type="button" id="button-add-hashtag">Ajouter</button>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="chip my-2">
+                                    <span class="ita-hashtag">Mythologie</span>
+                                    <button type="button" class="btn-close" aria-label="Close"></button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+<script src="./ckeditor/build/ckeditor.js"></script>
+<script type="module">
+    import Image from './node_modules/@ckeditor/ckeditor5-image/src/image.js';
+</script>
+<script>
+getParameter = (key) => {
+    // Address of the current window
+    address = window.location.search
+
+    // Returns a URLSearchParams object instance
+    parameterList = new URLSearchParams(address)
+
+    // Returning the respected value associated
+    // with the provided key
+    return parameterList.get(key)
+}
+
+ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        cloudServices: {
+            tokenUrl: 'https://example.com/cs-token-endpoint',
+            uploadUrl: 'https://your-organization-id.cke-cs.com/easyimage/upload/'
+        }
+    } )
+    .then( newEditor => {
+        editor = newEditor;
+    } )
+    .catch( error => {
+        console.error( error );
+    } );
+
+const save_article = () => {
+    const editorData = editor.getData();
+    formData = new FormData();
+    formData.append("content", editorData);
+    if(getParameter("article_id") != null){
+        formData.append("article_id", getParameter("article_id"))
+    }
+
+    $.ajax({
+        url: "/traitement/article_save.php",
+        type: "POST",
+        data: formData,
+        enctype: 'multipart/form-data',
+        processData: false,
+        contentType: false,
+        success: function(data){
+            alert(data);
+        },
+        error: function(data){
+            alert('Request Status: ' + data.status + ' Status Text: ' + data.statusText + ' ' + data.responseText);
+        },
+    })
+
+    var hashtag_json = [];
+}
+</script>

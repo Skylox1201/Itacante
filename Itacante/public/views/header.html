@@ -1,0 +1,81 @@
+
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="./index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <img src="/static/media/italogo.png" alt="logo"></img>
+        </a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-12">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"> <!--Home-->
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item dropdown"> <!--Ressources-->
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Ressources
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                        <a class="dropdown-item" href="#">Royaumes</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item active" href="#">Panthéon</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item active" href="/fiches">Créatures</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Tableaux</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown"> <!--Admin-->
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Admin
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                        <a class="dropdown-item active" href="/article-write">Écrire un article</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item active" href="/fiche-editable">Créer une fiche de créature</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item"> <!--Salon-->
+                  <a class="nav-link disabled ">Salon</a>
+                </li>
+                </ul>
+
+                <!--Si on est connecté-->
+                    <div class="dropdown text-end">
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/static/media/default-user-image.png" alt="image de l'utilisateur" class="rounded-circle user-img">
+                    </a>
+                    <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item" href="#">New project...</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="./traitement/signout.html">Se déconnecter</a></li>
+                    </ul>
+                    </div>
+                <!--Si on n'est pas connecté-->
+                <div class="text-end">
+                    <a href="./user-log/login.html"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
+                    <a href="./user-log/signin.html"><button type="button" class="btn btn-warning" href="./user-log/signin.html">Sign-up</button></a>
+                </div>
+            </div>
+            </div>
+          </div>
+        </nav>
+        <form class="d-flex col-12" role="search">
+          <input type="search" class="form-control form-control-dark text-white bg-dark" placeholder="Search..." aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
