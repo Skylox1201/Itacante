@@ -9,7 +9,7 @@ const app = express();
 // configuration ===========================================================
 
 // config files
-require('./api/models/dbConfig');
+require('./app/models/dbConfig');
 
 //set our port
 const port = process.env.PORT || 3000;
@@ -36,7 +36,8 @@ app.use(express.static(__dirname + '/public'));
 
 // routes =================================================================
 
-require('./app/routes')(app); // configure our routes
+require('./app/routes/ficheRoutes')(app); // configure our routes to fiches
+require('./app/routes/userRoutes')(app); // configure our routes to auth
 
 // start app ==============================================================
 // startup our app at http://localhost:8080

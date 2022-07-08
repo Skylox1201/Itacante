@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Aladin";
+    src: url("./assets/fonts/Aladin-Regular.ttf");
+}
+body {
+    min-height: 100vh;
+    font-family: "Aladin";
+    font-size: 17px;
+    background-image: url("./assets/media/tavern-wall.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
