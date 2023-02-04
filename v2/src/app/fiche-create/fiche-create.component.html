@@ -1,0 +1,942 @@
+<main>
+    <form [formGroup]="ficheForm" id="id-form-principal">
+        <div class="container p-4">
+            <nav>
+                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-informations-principales-tab" data-bs-toggle="tab" data-bs-target="#nav-informations-principales" type="button" role="tab" aria-controls="nav-informations-principales" aria-selected="true">Informations principales</button>
+                    <button class="nav-link" id="nav-competences-traits-tab" data-bs-toggle="tab" data-bs-target="#nav-competences-traits" type="button" role="tab" aria-controls="nav-competences-traits" aria-selected="false">Compétences et traits</button>
+                    <button class="nav-link" id="nav-equipement-tab" data-bs-toggle="tab" data-bs-target="#nav-equipement" type="button" role="tab" aria-controls="nav-equipement" aria-selected="false">Equipement</button>
+                    <button class="nav-link" id="nav-magie-coups-speciaux-tab" data-bs-toggle="tab" data-bs-target="#nav-magie-coups-speciaux" type="button" role="tab" aria-controls="nav-disabled" aria-selected="false">Magie et coups spéciaux</button>
+                </div>
+            </nav>
+
+            <div class="tab-content"> <!--Informations principales-->
+                <div class="tab-pane fade show active" id="nav-informations-principales" role="tabpanel" aria-labelledby="nav-informations-principales-tab" tabindex="0">
+                    <div class="row">
+                        <div class="col-12 col-md-7 order-2 order-md-1">
+                            <div class="py-2 row gy-2 gx-3 align-items-center">
+                                <div class="col-auto">
+                                    <div class="form-floating">
+                                        <input id="id-fiche-nom" type="text" class="form-control" placeholder="Nom de la créature" formControlName="name" form="id-form-principal">
+                                        <label for="id-fiche-nom">Nom de la créature</label>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="form-floating">
+                                        <select class="form-select" name="fiche-taille" id="id-fiche-taille" aria-label="Taille de la créature" formControlName="taille" form="id-form-principal">
+                                            <option value="">Taille de la créature</option>
+                                            <option value="xss">XSS</option>
+                                            <option value="xs">XS</option>
+                                            <option value="s">S</option>
+                                            <option value="m">M</option>
+                                            <option value="l">L</option>
+                                            <option value="xl">XL</option>
+                                            <option value="xxl">XXL</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="form-floating">
+                                        <input id="id-fiche-exp" name="fiche-exp" type="number" class="form-control" placeholder="Exp" autocomplete="off" min="0" value ="0" formControlName="exp" form="id-form-principal">
+                                        <label for="id-fiche-exp">EXP</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table border-dark">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Royaume</th>
+                                            <th scope="col" id="th-in-royaume">Peut se trouver dans ce royaume</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-group-divider">
+                                        <tr>
+                                            <td scope="col" id="td-royaume-mezoide">Mezoïde</td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input id="id-fiche-location-mezoide" class="form-check-input" value="true" type="checkbox" role="switch" aria-labelledby="th-in-royaume td-royaume-mezoide" formControlName="locationMezoide" form="id-form-principal">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="col" id="td-royaume-rocheuses">Rocheuses</td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input id="id-fiche-location-rocheuses" class="form-check-input" value="true" type="checkbox" role="switch" aria-labelledby="th-in-royaume td-royaume-rocheuses" formControlName="locationRocheuses" form="id-form-principal">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="col" id="td-royaume-tagata">Tagata</td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input id="id-fiche-location-tagata" class="form-check-input" value="true" type="checkbox" role="switch" aria-labelledby="th-in-royaume td-royaume-tagata" formControlName="locationTagata" form="id-form-principal">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="col" id="td-royaume-oland">Ôland</td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input id="id-fiche-location-oland" class="form-check-input" value="true" type="checkbox" role="switch" aria-labelledby="th-in-royaume td-royaume-oland" formControlName="locationOland" form="id-form-principal">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="col" id="td-royaume-iles">Îles perdues</td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input id="id-fiche-location-iles" class="form-check-input" value="true" type="checkbox" role="switch" aria-labelledby="th-in-royaume td-royaume-iles" formControlName="locationIles" form="id-form-principal">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="col" id="td-royaume-big-blue">Big Blue</td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input id="id-fiche-location-big-blue" class="form-check-input" value="true" type="checkbox" role="switch" aria-labelledby="th-in-royaume td-royaume-big-blue" formControlName="locationBlue" form="id-form-principal">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="col" id="td-royaume-desert">Désert Larmoyant</td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input id="id-fiche-location-desert" class="form-check-input" value="true" type="checkbox" role="switch" aria-labelledby="th-in-royaume td-royaume-desert" formControlName="locationDesert" form="id-form-principal">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="col" id="td-royaume-paradis">Paradis</td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input id="id-fiche-location-paradis" class="form-check-input" value="true" type="checkbox" role="switch" aria-labelledby="th-in-royaume td-royaume-paradis" formControlName="locationParadis" form="id-form-principal">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="col" id="td-royaume-enfer">Enfer</td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input id="id-fiche-location-enfer" class="form-check-input" value="true" type="checkbox" role="switch" aria-labelledby="th-in-royaume td-royaume-enfer" formControlName="locationEnfer" form="id-form-principal">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="col" id="td-royaume-life">Life Lands</td>
+                                            <td>
+                                                <div class="form-check form-switch"> 
+                                                    <input id="id-fiche-location-life" class="form-check-input" value="true" type="checkbox" role="switch" aria-labelledby="th-in-royaume td-royaume-life" formControlName="locationLife" form="id-form-principal">
+                                                </div>
+                                            </td> 
+                                        </tr>
+                                        <tr>
+                                            <td scope="col" id="td-royaume-death">Death Lands</td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input id="id-fiche-location-death" class="form-check-input" value="true" type="checkbox" role="switch" aria-labelledby="th-in-royaume td-royaume-death" formControlName="locationDeath" form="id-form-principal">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="col" id="td-royaume-archaia">Archaia</td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input id="id-fiche-location-archaia" class="form-check-input" value="true" type="checkbox" role="switch" aria-labelledby="th-in-royaume td-royaume-archaia" formControlName="locationArchaia" form="id-form-principal">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-5 order-1 order-md-2">
+                            <div class="row">
+                                <img id="id-fiche-image-preview" [src]="imageUrl" class="rounded img-fluid" alt="Image créature" style="background-color: grey; min-height:300px" accept="image/*">
+                            </div>
+                            <div class="row">
+                                <div class="input-group my-3">
+                                    <input name="fiche-image" class="form-control" type="file" id="id-fiche-image-input" (change)="showPreview($event)" accept="image/*" form="id-form-principal">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-2 gy-2 gx-3 align-items-center">
+                        <div class="col-auto">
+                            <div class="form-floating">
+                                <input id="id-fiche-pv" name="fiche-pv" type="number" class="form-control" placeholder="Points de vie" autocomplete="off"  formControlName="pv" form="id-form-principal">
+                                <label for="id-fiche-pv">Points de vie</label>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-floating">
+                                <input id="id-fiche-mana" name="fiche-mana" type="number" class="form-control" placeholder="Mana" autocomplete="off"  formControlName="mana" form="id-form-principal">
+                                <label for="id-fiche-mana">Mana</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row gy-2 gx-3 align-items-center">
+                        <div class="col-auto">
+                            <div class="form-floating">
+                                <input id="id-fiche-force" name="fiche-force" type="number" class="form-control" placeholder="Force" autocomplete="off" value="10" formControlName="force" form="id-form-principal">
+                                <label for="id-fiche-force">Force</label>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-floating">
+                                <input id="id-fiche-dexterite" name="fiche-dexterite" type="number" class="form-control" placeholder="Dextérité" autocomplete="off" value="10" formControlName="dexterite" form="id-form-principal">
+                                <label for="id-fiche-dexterite">Dextérité</label>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-floating">
+                                <input id="id-fiche-constitution" name="fiche-constitution" type="number" class="form-control" placeholder="Constitution" autocomplete="off" value="10" formControlName="constitution" form="id-form-principal">
+                                <label for="id-fiche-constitution">Constitution</label>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-floating">
+                                <input id="id-fiche-intelligence" name="fiche-intelligence" type="number" class="form-control" placeholder="Intelligence" autocomplete="off" value="10" formControlName="intelligence" form="id-form-principal">
+                                <label for="id-fiche-intelligence">Intelligence</label>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-floating">
+                                <input id="id-fiche-sagesse" name="fiche-sagesse" type="number" class="form-control" placeholder="Sagesse de la créature" autocomplete="off" value="10" formControlName="sagesse" form="id-form-principal">
+                                <label for="id-fiche-sagesse">Sagesse</label>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-floating">
+                                <input id="id-fiche-charisme" name="fiche-charisme" type="number" class="form-control" placeholder="Charisme de la créature" autocomplete="off" value="10" formControlName="charisme" form="id-form-principal">
+                                <label for="id-fiche-charisme">Charisme</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-2 gy-2 gx-3 align-items-center">
+                        <div class="form-floating">
+                            <textarea class="form-control" id="id-fiche-description" name="fiche-description" placeholder="Description" formControlName="description" form="id-form-principal"></textarea>
+                            <label for="id-fiche-description">Description</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content"> <!--Compétences et traits-->
+                <div class="tab-pane fade" id="nav-competences-traits" role="tabpanel" aria-labelledby="nav-competences-traits-tab" tabindex="0">           
+                    <div class="row py-2 gy-2 gx-3 align-items-start">
+                        <div class="col-12 col-md-6">
+                            <h3>Compétences</h3>
+                            <table id="table-traits" class="table border-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Bonus/Malus</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                    <tr>
+                                        <td scope="col">Acrobatie (DEX)</td>
+                                        <td>
+                                            Un jet de Dextérité (Acrobaties) couvre votre tentative pour rester sur vos pieds dans une situation délicate, comme lorsque vous essayez de courir sur de la glace, de tenir en équilibre sur une corde raide, ou de rester debout sur le pont d'un navire chahuté. Le maître de jeu peut également demander un jet de Dextérité (Acrobaties) pour voir si vous pouvez effectuer des acrobaties, comme un plongeon, une roulade ou un saut périlleux
+                                        </td>
+                                        <td><input id="id-fiche-bonus-acrobatie" type="number" name="bonus-acrobatie" value="-4" formControlName="competenceAcrobatie" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Arcane (INT)</td>
+                                        <td>
+                                            Un jet d'Intelligence (Arcanes) évalue votre aptitude à vous rappeler des choses à propos de sorts, d'objets magiques, de symboles occultes, de traditions magiques, de plans d'existence ou des habitants de ces plans.
+                                        </td>
+                                        <td><input id="id-fiche-bonus-arcane" type="number" name="bonus-arcane" value="-4" formControlName="competenceArcane" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Atlétisme (FOR)</td>
+                                        <td>
+                                            Un jet de Force (Athlétisme) couvre les situations difficiles que vous rencontrez en grimpant, en sautant ou nageant
+                                        </td>
+                                        <td><input id="id-fiche-bonus-athletisme" type="number" name="bonus-athletisme" value="-4" formControlName="competenceAthletisme" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Discrétion (DEX)</td>
+                                        <td>
+                                            Faite un jet de Dextérité (Discrétion) lorsque vous essayez de vous cacher des ennemis, de vous glisser entre des gardes, filer sans vous faire remarquer, ou vous échapper sans être vu ou entendu.                                                
+                                        </td>
+                                        <td><input id="id-fiche-bonus-discretion" type="number" name="bonus-discretion" value="-4" formControlName="competenceDiscretion" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Dressage (SAG)</td>
+                                        <td>
+                                            Quand il est question de savoir si vous pouvez calmer un animal domestique, faire qu'une monture ne s'effraye pas, ou deviner les intentions d'un animal, le MD peut demander un jet de Sagesse (Dressage). Vous pouvez également faire un jet de Sagesse (Dressage) pour contrôler votre monture lorsque vous tentez une manœuvre risquée.
+                                        </td>
+                                        <td><input id="id-fiche-bonus-dressage" type="number" name="bonus-dressage" value="-4" formControlName="competenceDressage" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Escamotage (DEX)</td>
+                                        <td>
+                                            Chaque fois que vous tentez une manipulation ou une fourberie, comme prendre quelque chose à quelqu'un ou dissimuler un objet sur vous-même, faites un jet de Dextérité (Escamotage). Le MD peut également demander un jet de Dextérité (Escamotage) pour déterminer si vous pouvez dérober une bourse ou glisser quelque chose dans la poche de quelqu'un.                                                
+                                        </td>
+                                        <td><input id="id-fiche-bonus-escamotage" type="number" name="bonus-escamotage" value="-4" formControlName="competenceEscamotage" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Histoire (INT)</td>
+                                        <td>
+                                            Un jet d'Intelligence (Histoire) évalue votre aptitude à vous rappeler des choses à propos d'événements historiques, de personnages légendaires, d'anciens royaumes, de conflits passés, de guerres récentes et de civilisations perdues.
+                                        </td>
+                                        <td><input id="id-fiche-bonus-histoire" type="number" name="bonus-histoire" value="-4" formControlName="competenceHistoire" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Intimidation (CHA)</td>
+                                        <td>
+                                            Lorsque vous essayez d'influencer les gens par des menaces ouvertes, des actions hostiles, ou de la violence physique, le MD peut vous demander de faire un jet de Charisme (Intimidation). Cela peut appliquer pour essayer de soutirer des informations à un prisonnier, convaincre des voyous de renoncer à une confrontation, ou utiliser un tesson de bouteille pour convaincre un vizir sarcastique de réexaminer sa décision.
+                                        </td>
+                                        <td><input id="id-fiche-bonus-intimidation" type="number" name="bonus-intimidation" value="-4" formControlName="competenceIntimidation" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Intuition (INT)</td>
+                                        <td>
+                                            Un jet de Sagesse (Intuition) détermine si vous pouvez déceler les véritables intentions d'une créature, comme lorsque vous tentez de savoir si elle ment ou pour prévoir son prochain mouvement. Cela implique de lire le langage du corps, détecter ses habitudes de langage et les changements dans ses manières.
+                                        </td>
+                                        <td><input id="id-fiche-bonus-intuition" type="number" name="bonus-intuition" value="-4" formControlName="competenceIntuition" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Investigation (INT)</td>
+                                        <td>
+                                            Lorsque vous regardez autour de vous pour trouver des indices et faire des déductions sur la base de ces indices, vous faites un jet d'Intelligence (Investigation). Vous pouvez en déduire l'emplacement d'un objet caché, discerner en fonction de l'apparence d'une blessure le type d'arme utilisé, ou déterminer le point faible dans un tunnel pour causer son effondrement. Se pencher sur d'anciens manuscrits à la recherche d'informations cachées peut aussi demander un jet d'Intelligence (Investigation).
+                                        </td>
+                                        <td><input id="id-fiche-bonus-investigation" type="number" name="bonus-investigation" value="-4" formControlName="competenceInvestigation" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Maîtrise des arcanes (SAG)</td>
+                                        <td>
+                                            Un jet de SAG (Maîtrise des arcanes) Détermine votre capacité à maîtrisé votre mana et à le ressentir.
+                                        </td>
+                                        <td><input id="id-fiche-bonus-maitrise-arcanes" type="number" name="have-maitrise-des-arcanes" value="-4" formControlName="competenceMaitriseArcanes" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Médecine (SAG)</td>
+                                        <td>
+                                            Un jet de Sagesse (Médecine) permet d'essayer de stabiliser un compagnon mourant ou de diagnostiquer une maladie.
+                                        </td>
+                                        <td><input id="id-fiche-bonus-medecine" type="number" name="bonus-medecine" value="-4" formControlName="competenceMedecine" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Mystères (INT)</td>
+                                        <td>
+                                            Un jet d'Intelligence (Mystères) évalue votre aptitude à connaître et à comprendre le fonctionnement d'Itacante, des étages, des plans, des fonctionnements des autres royaumes...
+                                        </td>
+                                        <td><input id="id-fiche-bonus-mysteres" type="number" name="bonus-mysteres" value="-4" formControlName="competenceMystere" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Nature (INT)</td>
+                                        <td>
+                                            Un jet d'Intelligence (Nature) évalue votre aptitude à vous rappeler des informations sur un type de terrain, des plantes ou des animaux, la météo et les cycles naturels.
+                                        </td>
+                                        <td><input id="id-fiche-bonus-nature" type="number" name="bonus-nature" value="-4" formControlName="competenceNature" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Perception (SAG)</td>
+                                        <td>
+                                            Un jet de Sagesse (Perception) permet de repérer, entendre ou détecter la présence de quelque chose. Il mesure votre conscience de l'environnement et l'acuité de vos sens. Par exemple, vous pouvez essayer d'entendre une conversation à travers une porte fermée, espionner par une fenêtre ouverte, ou entendre des monstres se faufiler dans la forêt. Vous pouvez aussi essayer de repérer des choses qui sont cachées ou difficiles à déceler, que ce soient des orcs en embuscade sur une route, des voyous cachés dans l'ombre d'une ruelle ou la lueur d'une chandelle sous une porte secrète fermée.
+                                        </td>
+                                        <td><input id="id-fiche-bonus-perception" type="number" name="bonus-perception" value="-4" formControlName="competencePerception" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Persuasion (CHA)</td>
+                                        <td>
+                                            Lorsque vous essayez d'influencer quelqu'un ou un groupe de personnes avec tact, grâce, ou de bonnes manières, le MD peut vous demander de faire un jet de Charisme (Persuasion). En règle générale, vous utilisez la persuasion lorsque vous agissez de bonne foi, afin de favoriser l'amitié, faire des demandes cordiales, ou utiliser l'étiquette appropriée. Vous pouvez utiliser la persuasion pour convaincre un chambellan de laisser votre groupe voir le roi, négocier la paix entre deux tribus en guerre, ou motiver une foule de citadins.
+                                        </td>
+                                        <td><input id="id-fiche-bonus-persuasion" type="number" name="bonus-persuasion" value="-4" formControlName="competencePersuasion" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Religion (INT)</td>
+                                        <td>
+                                            Un jet d'Intelligence (Religion) évalue votre aptitude à vous rappeler des choses à propos des dieux, des rites et des prières, la hiérarchie religieuse, les symboles sacrés et les pratiques de cultes secrets.
+                                        </td>
+                                        <td><input id="id-fiche-bonus-religion" type="number" name="bonus-religion" value="-4" formControlName="competenceReligion" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Représentation (CHA)</td>
+                                        <td>
+                                            Un jet de Charisme (Représentation) détermine la façon dont vous pouvez enchanter un public par la musique, la danse, le théâtre, le conte ou toute autre forme de divertissement.
+                                        </td>
+                                        <td><input id="id-fiche-bonus-representation" type="number" name="bonus-representation" value="-4" formControlName="competenceRepresentation" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Survie (SAG)</td>
+                                        <td>
+                                            Le MD peut vous demander de faire un jet de Sagesse (Survie) pour suivre des traces, chasser du gibier sauvage, guider votre groupe sur un terrain gelé, identifier des traces indiquant qu'un ours-hibou vit à proximité, prévoir le temps ou éviter des sables mouvants et autres catastrophes naturelles.
+                                        </td>
+                                        <td><input id="id-fiche-bonus-survie" type="number" name="bonus-survie" value="-4" formControlName="competenceSurvie" form="id-form-principal"></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Tromperie (CHA)</td>
+                                        <td>
+                                            Un jet de Charisme (Tromperie) détermine si vous pouvez cacher la vérité avec efficacité, soit verbalement, soit par vos actions. La tromperie peut englober beaucoup de choses, depuis l'ambiguïté de ses dires jusqu'au mensonge pur et simple. Des situations typiques sont d'essayer d'embobiner un garde, duper un commerçant, gagner de l'argent au jeu, vous faire passer pour quelqu'un d'autre à l'aide d'un déguisement, apaiser les soupçons de quelqu'un avec une fausse assurance, ou maintenir un visage impassible tout en racontant un mensonge flagrant.
+                                        </td>
+                                        <td><input id="id-fiche-bonus-tromperie" type="number" name="bonus-tromperie" value="-4" formControlName="competenceTromperie" form="id-form-principal"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <h3>Traits</h3>
+                            <p>
+                                Les traits sont des compétences que seul certaines personnes possèdent. Cela peut aller au trait bon nageur à l'addiction aux cacahuètes.
+                            </p>
+                            <form [formGroup]="traitForm" id="id-form-trait">
+                                <div class="input-group mb-3">
+                                    <input id="add-trait-nom" type="text" class="form-control" placeholder="Nom du trait" formControlName="trait_nom" form="id-form-trait">
+                                    <textarea id="add-trait-description" type="text" class="form-control" placeholder="Description" formControlName="trait_description" form="id-form-trait"></textarea>
+                                    <textarea id="add-trait-effet" type="text" class="form-control" placeholder="Effet" formControlName="trait_effet" form="id-form-trait"></textarea>
+                                    <button class="btn btn-secondary" (click)="onAddTrait()" type="submit" aria-label="Ajouter le trait" form="id-form-trait">Ajouter</button>
+                                </div>
+                            </form>
+                            
+                            <div class="table-responsive">
+                                <table id="table-body-trait" class="table border-dark">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nom</th>
+                                            <th scope="col">Description</th>
+                                            <th scope="col">Effet</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-trait-body" class="table-group-divider">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content"> <!--Équipement et inventaire-->
+                <div class="tab-pane fade" id="nav-equipement" role="tabpanel" aria-labelledby="nav-equipement-tab" tabindex="0">
+                    <div class="row">
+                        <h2>Armement</h2>
+                        <div class="table-responsive">
+                            <table id="table-armement" class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nom de l'arme</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Dégâts</th>
+                                        <th scope="col">Parade</th>
+                                        <th scope="col">Portée</th>
+                                        <th scope="col">Rupture</th>
+                                        <th scope="col">Bonus / Malus divers</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="col"><input id="id-fiche-nom-arme-1" name="nom-arme-1" type="text" class="form-control" formControlName="arme1_nom" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-type-arme-1" name="type-arme-1" class="form-select" aria-label="Type de l'arme 1" formControlName="arme1_type" form="id-form-principal">
+                                                <option value="tranchant">Tranchant</option>
+                                                <option value="contendant">Contendant</option>
+                                                <option value="percant">Perçant</option>
+                                                <option value="distance">Distance</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><input id="id-fiche-degat-arme-1" name="degat-arme-1" type="text" class="form-control" formControlName="arme1_degat" form="id-form-principal"></td>
+                                        <td scope="col"><input id="id-fiche-parade-arme-1" name="parade-arme-1" type="number" class="form-control" value="0" formControlName="arme2_parade" form="id-form-principal"></td>
+                                        <td scope="col"><input id="id-fiche-portee-arme-1" name="portee-arme-1" type="text" class="form-control" formControlName="arme2_portee" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-rupture-arme-1" name="rupture-arme-1" class="form-select" aria-label="Rupture de l'arme 1" formControlName="arme1_rupture" form="id-form-principal">
+                                                <option value="4">1 à 4</option>
+                                                <option value="3">1 à 3</option>
+                                                <option value="2">1 à 2</option>
+                                                <option value="1">1</option>
+                                                <option value="0">Indestructible</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><textarea id="id-fiche-bonus-arme-1" name="bonus-arme-1" type="text" class="form-control" formControlName="arme1_bonusMalus" form="id-form-principal"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col"><input id="id-fiche-nom-arme-2" name="nom-arme-2" type="text" class="form-control" formControlName="arme2_nom" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-type-arme-2" name="type-arme-2" class="form-select" aria-label="Type de l'arme 2" formControlName="arme2_type" form="id-form-principal">
+                                                <option value="tranchant">Tranchant</option>
+                                                <option value="contendant">Contendant</option>
+                                                <option value="percant">Perçant</option>
+                                                <option value="distance">Distance</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><input id="id-fiche-degat-arme-2" name="degat-arme-2" type="text" class="form-control" formControlName="arme2_degat" form="id-form-principal"></td>
+                                        <td scope="col"><input id="id-fiche-parade-arme-2" name="parade-arme-2" type="number" class="form-control" formControlName="arme2_parade" form="id-form-principal"></td>                                            <td scope="col"><input id="id-fiche-portee-arme-2" name="portee-arme-2" type="text" class="form-control"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-rupture-arme-2" name="rupture-arme-2" class="form-select" aria-label="Rupture de l'arme 2" formControlName="arme2_rupture" form="id-form-principal">
+                                                <option value="4">1 à 4</option>
+                                                <option value="3">1 à 3</option>
+                                                <option value="2">1 à 2</option>
+                                                <option value="1">1</option>
+                                                <option value="0">Indestructible</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><textarea id="id-fiche-bonus-arme-2" name="bonus-arme-2" type="text" class="form-control" formControlName="arme2_bonusMalus" form="id-form-principal"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col"><input id="id-fiche-nom-arme-3" name="nom-arme-3" type="text" class="form-control" formControlName="arme3_nom" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-type-arme-3" name="type-arme-3" class="form-select" aria-label="Type de l'arme 3" formControlName="arme3_type" form="id-form-principal">
+                                                <option value="tranchant">Tranchant</option>
+                                                <option value="contendant">Contendant</option>
+                                                <option value="percant">Perçant</option>
+                                                <option value="distance">Distance</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><input id="id-fiche-degat-arme-3" name="degat-arme-3" type="text" class="form-control" formControlName="arme3_degat" form="id-form-principal"></td>
+                                        <td scope="col"><input id="id-fiche-parade-arme-3" name="parade-arme-3" type="number" class="form-control" formControlName="arme3_parade" form="id-form-principal"></td>
+                                        <td scope="col"><input id="id-fiche-portee-arme-3" name="portee-arme-3" type="text" class="form-control" formControlName="arme3_portee" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-rupture-arme-3" name="rupture-arme-3" class="form-select" aria-label="Rupture de l'arme 3" formControlName="arme3_rupture" form="id-form-principal">
+                                                <option value="4">1 à 4</option>
+                                                <option value="3">1 à 3</option>
+                                                <option value="2">1 à 2</option>
+                                                <option value="1">1</option>
+                                                <option value="0">Indestructible</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><textarea id="id-fiche-bonus-arme-4" name="bonus-arme-3" type="text" class="form-control" formControlName="arme3_bonusMalus" form="id-form-principal"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col"><input id="id-fiche-nom-arme-4" name="nom-arme-4" type="text" class="form-control" formControlName="arme4_nom" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-type-arme-4" name="type-arme-4" class="form-select" aria-label="Type de l'arme 4" formControlName="arme4_type" form="id-form-principal">
+                                                <option value="tranchant">Tranchant</option>
+                                                <option value="contendant">Contendant</option>
+                                                <option value="percant">Perçant</option>
+                                                <option value="distance">Distance</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><input id="id-fiche-degat-arme-4" name="degat-arme-4" type="text" class="form-control" formControlName="arme4_degat" form="id-form-principal"></td>
+                                        <td scope="col"><input id="id-fiche-parade-arme-4" name="parade-arme-4" type="number" class="form-control" formControlName="arme4_parade" form="id-form-principal"></td>
+                                        <td scope="col"><input id="id-fiche-portee-arme-4" name="portee-arme-4" type="text" class="form-control" formControlName="arme4_portee" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-rupture-arme-4" name="rupture-arme-4" class="form-select" aria-label="Rupture de l'arme 4" formControlName="arme4_rupture" form="id-form-principal">
+                                                <option value="4">1 à 4</option>
+                                                <option value="3">1 à 3</option>
+                                                <option value="2">>1 à 2</option>
+                                                <option value="1">1</option>
+                                                <option value="0">Indestructible</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><textarea id="id-fiche-bonus-arme-4" name="bonus-arme-4" type="text" class="form-control" formControlName="arme4_bonusMalus" form="id-form-principal"></textarea></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h2>Bouclier</h2>
+                        <div class="table-responsive">
+                            <table id="table-bouclier" class="table border-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nom du bouclier</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Parade</th>
+                                        <th scope="col">PR physique</th>
+                                        <th scope="col">PR magique</th>
+                                        <th scope="col">Rupture</th>
+                                        <th scope="col">Bonus / Malus divers</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                    <tr>
+                                        <td scope="col"><input id="id-fiche-nom-bouclier" name="nom-bouclier" type="texte" class="form-control" formControlName="bouclier_nom" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-type-bouclier" name="type-bouclier" class="form-select" aria-label="Type du bouclier" formControlName="bouclier_type" form="id-form-principal">
+                                                <option value="leger">Léger</option>
+                                                <option value="intermediaire">Intermédiaire</option>
+                                                <option value="lourd">Lourd</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><input id="id-fiche-parade-bouclier" name="parade-bouclier" type="number" class="form-control" formControlName="bouclier_parade" form="id-form-principal"></td>
+                                        <td scope="col"><input id="id-fiche-pr-physique-bouclier" name="pr-phy-bouclier" type="number" class="form-control" formControlName="bouclier_prPhy" form="id-form-principal"></td>
+                                        <td scope="col"><input id="id-fiche-pr-magique-bouclier" name="pr-mag-bouclier" type="number" class="form-control" formControlName="bouclier_prMag" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-rupture-bouclier" name="rupture-bouclier" class="form-select" aria-label="Rupture du bouclier" formControlName="bouclier_rupture" form="id-form-principal">
+                                                <option value="4">1 à 4</option>
+                                                <option value="3">1 à 3</option>
+                                                <option value="2">1 à 2</option>
+                                                <option value="1">1</option>
+                                                <option value="0">Indestructible</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><textarea id="id-fiche-bonus-bouclier" name="bonus-bouclier" type="text" class="form-control" formControlName="bouclier_bonusMalus" form="id-form-principal"></textarea></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h2>Armure</h2>
+                        <div class="table-responsive">
+                            <table id="table-armure" class="table border-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" id="head-piece-armure">Pièce d'armure</th>
+                                        <th scope="col" id="head-nom-armure">Nom</th>
+                                        <th scope="col" id="head-type-armure">Type</th>
+                                        <th scope="col" id="head-pr-physique-armure">PR physique</th>
+                                        <th scope="col" id="head-pr-magique-armure">PR magique</th>
+                                        <th scope="col" id="head-rupture-armure">Rupture</th>
+                                        <th scope="col" id="head-bonus-malus-armure">Bonus / Malus divers</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                    <tr>
+                                        <td scope="col" aria-labelledby="head-piece-armure" id="td-armure-naturelle">Naturelle</td>
+                                        <td scope="col"></td>
+                                        <td scope="col"></td>
+                                        <td scope="col"><input id="id-fiche-pr-phy-armure-1" name="pr-phy-armure-1" type="number" class="form-control" formControlName="armure_naturelle_prPhy" aria-labelledby="head-pr-physique-armure td-armure-naturelle" form="id-form-principal"></td>
+                                        <td scope="col"><input id="id-fiche-pr-mag-armure-1" name="pr-mag-armure-1" type="number" class="form-control" formControlName="armure_naturelle_prMag" aria-labelledby="head-pr-magique-armure td-armure-naturelle" form="id-form-principal"></td>
+                                        <td scope="col"></td>
+                                        <td scope="col"><textarea id="bonus-armure-1" name="bonus-armure-1" type="text" class="form-control" aria-labelledby="head-bonus-malus-armure td-armure-naturelle" formControlName="armure_naturelle_bonusMalus" form="id-form-principal"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col" aria-labelledby="head-piece-armure" id="td-armure-tete">Tête</td>
+                                        <td scope="col"><input id="id-fiche-nom-armure-2" name="nom-armure-2" type="text" class="form-control" aria-labelledby="head-nom-armure td-armure-tete" formControlName="armure_tete_nom" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-type-armure-2" name="type-armure-2" class="form-select" aria-label="head-type-armure td-armure-tete" formControlName="armure_tete_type" form="id-form-principal">
+                                                <option value="legere">Légère</option>
+                                                <option value="intermediaire">Intermédiaire</option>
+                                                <option value="lourde">Lourde</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><input id="id-fiche-pr-phy-armure-2" name="pr-phy-armure-2" type="number" class="form-control" value="0" aria-labelledby="head-pr-physique-armure td-armure-tete" formControlName="armure_tete_prPhy" form="id-form-principal"></td>
+                                        <td scope="col"><input id="id-fiche-pr-mag-armure-2" name="pr-mag-armure-2" type="number" class="form-control" value="0" aria-labelledby="head-pr-magique-armure td-armure-tete" formControlName="armure_tete_prMag" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-rupture-armure-2" name="rupture-armure-2" class="form-select" aria-label="Rupture de l'armure" aria-labelledby="head-rupture-armure td-armure-tete" formControlName="armure_tete_rupture" form="id-form-principal">
+                                                <option value="4">1 à 4</option>
+                                                <option value="3">1 à 3</option>
+                                                <option value="2">1 à 2</option>
+                                                <option value="1">1</option>
+                                                <option value="0">Indestructible</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><textarea id="id-fiche-bonus-armure-2" name="bonus-armure-2" type="text" class="form-control" aria-labelledby="head-bonus-malus-armure td-armure-tete" formControlName="armure_tete_bonusMalus" form="id-form-principal"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col" id="td-armure-torse">Torse</td>
+                                        <td scope="col"><input id="id-fiche-nom-armure-3" name="nom-armure-3" type="text" class="form-control" formControlName="armure_torse_nom" aria-labelledby="torse-nom-armure td-armure-torse" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-type-armure-3" name="type-armure-3" class="form-select" aria-label="torse-type-armure td-armure-torse" formControlName="armure_torse_type" form="id-form-principal">
+                                                <option value="legere">Légère</option>
+                                                <option value="intermediaire" >Intermédiaire</option>
+                                                <option value="lourde">Lourde</option>
+                                            </select>
+                                        </td> 
+                                        <td scope="col"><input id="id-fiche-pr-phy-armure-3" name="pr-phy-armure-3" type="number" class="form-control" formControlName="armure_torse_prPhy" aria-labelledby="torse-pr-physique-armure td-armure-torse" form="id-form-principal"></td>
+                                        <td scope="col"><input id="id-fiche-pr-mag-armure-3" name="pr-mag-armure-3" type="number" class="form-control" formControlName="armure_torse_prMag" aria-labelledby="torse-pr-magique-armure td-armure-torse" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-rupture-armure-3" name="rupture-armure-3" class="form-select" aria-labelledby="torse-rupture-armure td-armure-torse" formControlName="armure_torse_rupture" form="id-form-principal">
+                                                <option value="4">1 à 4</option>
+                                                <option value="3">1 à 3</option>
+                                                <option value="2">1 à 2</option>
+                                                <option value="1">1</option>
+                                                <option value="0">Indestructible</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><textarea id="id-fiche-bonus-armure-3" name="bonus-armure-3" type="text" class="form-control" aria-labelledby="torse-bonus-malus-armure td-armure-torse" formControlName="armure_torse_bonusMalus" form="id-form-principal"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col" id="td-armure-bras">Bras</td>
+                                        <td scope="col"><input id="id-fiche-nom-armure-4" name="nom-armure-4" type="text" class="form-control" aria-labelledby="bras-nom-armure td-armure-bras" formControlName="armure_bras_nom" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-type-armure-4" name="type-armure-4" class="form-select" aria-label="Type d'armure" aria-labelledby="bras-type-armure td-armure-bras" formControlName="armure_bras_type" form="id-form-principal">
+                                                <option value="legere">Légère</option>
+                                                <option value="intermediaire">Intermédiaire</option>
+                                                <option value="lourde">Lourde</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><input id="id-fiche-pr-phy-armure-4" name="pr-phy-armure-4" type="number" class="form-control" formControlName="armure_bras_prPhy" aria-labelledby="bras-pr-physique-armure td-armure-bras" form="id-form-principal"></td>
+                                        <td scope="col"><input id="id-fiche-pr-mag-armure-4" name="pr-mag-armure-4" type="number" class="form-control" formControlName="armure_bras_prMag" aria-labelledby="bras-pr-magique-armure td-armure-bras" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-rupture-armure-4" name="rupture-armure-4"class="form-select" aria-labelledby="bras-rupture-armure td-armure-bras" formControlName="armure_bras_rupture" form="id-form-principal">
+                                                <option value="4">1 à 4</option>
+                                                <option value="3">1 à 3</option>
+                                                <option value="2">1 à 2</option>
+                                                <option value="1">1</option>
+                                                <option value="0">Indestructible</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><textarea id="id-fiche-bonus-armure-4" name="bonus-armure-4" type="text" class="form-control" aria-labelledby="jambes-bonus-malus-armure td-armure-bras" formControlName="armure_bras_bonusMalus" form="id-form-principal"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col" id="td-armure-jambes">Jambes</td>
+                                        <td scope="col"><input id="id-fiche-nom-armure-5" name="nom-armure-5" type="text" class="form-control" value="" aria-labelledby="jambes-nom-armure td-armure-jambes" formControlName="armure_jambes_nom" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-type-armure-5" name="type-armure-5" class="form-select" aria-label="Type d'armure" aria-labelledby="jambes-type-armure td-armure-jambes" formControlName="armure_jambes_type" form="id-form-principal">
+                                                <option value="legere">Légère</option>
+                                                <option value="intermediaire">Intermédiaire</option>
+                                                <option value="lourde">Lourde</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><input id="id-fiche-pr-phy-armure-5" name="pr-phy-armure-5" type="number" class="form-control" formControlName="armure_jambes_prPhy" aria-labelledby="jambes-pr-physique-armure td-armure-jambes" form="id-form-principal"></td>
+                                        <td scope="col"><input id="id-fiche-pr-mag-armure-5" name="pr-mag-armure-5" type="number" class="form-control" formControlName="armure_jambes_prMag" aria-labelledby="jambes-pr-magique-armure td-armure-jambes" form="id-form-principal"></td>
+                                        <td scope="col">
+                                            <select id="id-fiche-rupture-armure-5" name="rupture-armure-5" class="form-select" aria-labelledby="jambes-rupture-armure td-armure-jambes" formControlName="armure_jambes_rupture" form="id-form-principal">
+                                                <option value="4">1 à 4</option>
+                                                <option value="3">1 à 3</option>
+                                                <option value="2">1 à 2</option>
+                                                <option value="1">1</option>
+                                                <option value="0">Indestructible</option>
+                                            </select>
+                                        </td>
+                                        <td scope="col"><textarea id="id-fiche-bonus-armure-5" name="bonus-armure-5" type="text" class="form-control" aria-labelledby="jambes-bonus-malus-armure td-armure-jambes" formControlName="armure_jambes_bonusMalus" form="id-form-principal"></textarea></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h2>Objets Magiques</h2>
+                        <div class="table-responsive">
+                            <table class="table border-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Objet magique</th>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Effet</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                    <tr>
+                                        <td scope="col">Anneau droit</td>
+                                        <td scope="col"><input id="id-fiche-nom-anneau-droit" name="nom-anneau-droit" type="text" class="form-control" formControlName="objetMagique_anneauDroit_nom" form="id-form-principal"></td>
+                                        <td scope="col"><textarea id="id-fiche-effet-anneau-droit" name="effet-anneau-droit" type="text" class="form-control" formControlName="objetMagique_anneauDroit_effet" form="id-form-principal"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Anneau gauche</td>
+                                        <td scope="col"><input id="id-fiche-nom-anneau-gauche" name="nom-anneau-gauche" type="text" class="form-control" formControlName="objetMagique_anneauGauche_nom" form="id-form-principal"></td>
+                                        <td scope="col"><textarea id="id-fiche-effet-anneau-gauche" name="effet-anneau-gauche" type="text" class="form-control" formControlName="objetMagique_anneauGauche_effet" form="id-form-principal"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Collier</td>
+                                        <td scope="col"><input id="id-fiche-nom-collier" name="nom-collier" type="text" class="form-control" formControlName="objetMagique_collier_nom" form="id-form-principal"></td>
+                                        <td scope="col"><textarea id="id-fiche-effet-collier" name="effet-collier" type="text" class="form-control" formControlName="objetMagique_collier_effet" form="id-form-principal"></textarea></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h2>Potion</h2>
+                        <form [formGroup]="potionForm" id="id-form-potion">
+                            <div class="input-group mb-3">
+                                <input id="add-potion-nom" type="text" class="form-control" placeholder="Nom de la potion" formControlName="potion_nom" form="id-form-potion">
+                                <textarea id="add-potion-effet" type="text" class="form-control" placeholder="Effet" formControlName="potion_effet" form="id-form-potion"></textarea>
+                                <input id="add-potion-dose" type="number" class="form-control" placeholder="Nombre de doses" value="0" formControlName="potion_dose" form="id-form-potion">
+                                <button class="btn btn-secondary" (click)="onAddPotion()" type="submit" form="id-form-potion">Ajouter</button>
+                            </div>
+                        </form>
+                        <div class="table-responsive">
+                            <table class="table border-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Effet</th>
+                                        <th scope="col">Dose</th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-body-potion" class="table-group-divider">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h2>Bourse</h2>
+                        <div class="row">
+                            <div class="col-auto">
+                                <div class="form-floating">
+                                    <input id="id-fiche-po" name="fiche-po" type="text" class="form-control" placeholder="Pièces d'or" autocomplete="off" formControlName="bourse_po" form="id-form-principal">
+                                    <label for="id-fiche-po">Pièces d'or</label>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="form-floating">
+                                    <input id="id-fiche-pa" name="fiche-pa" type="text" class="form-control" placeholder="Pièces d'argent" autocomplete="off" formControlName="bourse_pa" form="id-form-principal">
+                                    <label for="id-fiche-pa">Pièces d'argent</label>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="form-floating">
+                                    <input id="id-fiche-pb" name="fiche-pb" type="text" class="form-control" placeholder="Pièces de bronze" autocomplete="off" formControlName="bourse_pb" form="id-form-principal">
+                                    <label for="id-fiche-pb">Pièces de bronzes</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h2>Inventaire</h2>
+                        <form [formGroup]="inventaireForm" id="id-form-inventaire">
+                            <div class="input-group mb-3">
+                                <input id="add-inventaire-nom" type="text" class="form-control" placeholder="Nom" formControlName="inventaire_nom" form="id-form-inventaire">
+                                <textarea id="add-inventaire-description" type="text" class="form-control" placeholder="Description" formControlName="inventaire_description" form="id-form-inventaire"></textarea>
+                                <input id="add-inventaire-occurence" type="number" class="form-control" placeholder="Occurence" value="0" formControlName="inventaire_occurence" form="id-form-inventaire">
+                                <button class="btn btn-secondary" (click)="onAddInventaire()" type="button" form="id-form-inventaire">Ajouter</button>
+                            </div>
+                        </form>
+                        <table class="table border-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nom</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Occurence</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-potion" class="table-group-divider">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content"><!--coups spéciaux et magie-->
+                <div class="tab-pane fade" id="nav-magie-coups-speciaux" role="tabpanel" aria-labelledby="nav-magie-coups-speciaux-tab" tabindex="0">
+                    <div class="row">
+                        <h2>Coups spéciaux</h2>
+                            <form [formGroup]="specialForm" id="id-form-special">
+                                <div class="input-group mb-3">
+                                    <input id="add-special-nom" type="text" class="form-control" placeholder="Nom du coup spécial" style="max-width: 300px;" formControlName="special_nom" form="id-form-special">
+                                    <textarea id="add-special-effet" type="text" class="form-control" placeholder="Effet" form="id-form-special" formControlName="special_effet"></textarea>
+                                    <button class="btn btn-secondary" (click)="onAddSpecial()" type="button" aria-label="Ajouter un coup spécial" form="id-form-special">Ajouter</button>
+                                </div>
+                            </form>
+                        <div class="table-responsive">
+                            <table class="table border-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col-3">Nom</th>
+                                        <th scope="col-6">Effet</th>
+                                        <th scope="col-1"></th>
+                                        <th scope="col-1"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-body-special" class="table-group-divider">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row" id="ligne-sortilege">
+                        <h2>Sorts</h2>
+                        <form [formGroup]="sortForm" id="id-form-sort">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            <div class="input-group">
+                                                <span class="input-group-text">Nom du sort</span>
+                                                <input id="add-sort-nom" type="text" class="form-control" aria-label="Entrez le nom du sort" formControlName="sort_nom" form="id-form-sort">
+                                            </div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="input-group">
+                                                <span class="input-group-text">Niveau du sort</span>
+                                                <input id="add-sort-niveau" type="number" class="form-control" aria-label="Entrez le niveau du sort" min="0" max="7" value="0" formControlName="sort_niveau" form="id-form-sort">
+                                            </div>
+                                        </th>
+                                        <td scope="col"><button type="button" class="btn btn-warning" (click)="onAddSort()" form="id-form-sort">Ajouter le sort</button ></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="4">
+                                            <table class="table mb-0">
+                                                <tr>
+                                                    <td scope="col">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text">Temps d'incantation</span>
+                                                            <input id="add-sort-incantation" type="texte" class="form-control" aria-label="Entrez le temps d'incantation du sort" form="id-form-sort" formControlName="sort_incantation">
+                                                        </div>
+                                                    </td>
+                                                    <td scope="col">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text">Portée</span>
+                                                            <input id="add-sort-portee" type="texte" class="form-control" aria-label="Entrez la portée du sort" formControlName="sort_portee" form="id-form-sort">
+                                                        </div>
+                                                    </td>
+                                                    <td scope="col">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text">Coût</span>
+                                                            <input id="add-sort-cout" type="texte" class="form-control" aria-label="Entrez le coût du sort" formControlName="sort_cout" form="id-form-sort">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="col">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text">Durée</span>
+                                                            <input id="add-sort-duree" type="texte" class="form-control" aria-label="Entrez la durée du sort" formControlName="sort_duree" form="id-form-sort">
+                                                        </div>
+                                                    </td>
+                                                    <td scope="col">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text">Aire d'effet</span>
+                                                            <input id="add-sort-aire-effet" type="texte" class="form-control" aria-label="Entrez l'aire d'effet du sort" formControlName="sort_aire_effet" form="id-form-sort">
+                                                        </div>
+                                                    </td>
+                                                    <td scope="col">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text">Formule</span>
+                                                            <input id="add-sort-formule" type="texte" class="form-control" aria-label="Entrez la formule du sort" formControlName="sort_formule" form="id-form-sort">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="col" colspan="4">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text">Effet</span>
+                                                            <textarea id="add-sort-effet" type="texte" class="form-control" aria-label="Entrez l'effet du sort" formControlName="sort_effet" form="id-form-sort"></textarea>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text">Réussite critique</span>
+                                                            <textarea id="add-sort-reussite-critique" type="texte" class="form-control" aria-label="Entrez l'effet en cas de réussite critique" formControlName="sort_critique" form="id-form-sort"></textarea>
+                                                        </div>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text">Échec critique</span>
+                                                            <textarea id="add-sort-echec-critique" type="texte" class="form-control" aria-label="Entrez l'effet en cas d'échec critique" form="id-form-sort" formControlName="sort_fumble"></textarea>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row my-2">
+                <button id="id-btn-save-modif" class="btn btn-warning" form="id-form-principal">Enregistrer les modifications</button>
+                <button type="submit" (click)="onCreateFiche()" class="btn btn-danger" form="id-form-principal">Créer</button>
+            </div>
+            
+        </div>
+    </form>
+</main>
+
+<script src="../../assets/js/fiche-create.component.js"></script>

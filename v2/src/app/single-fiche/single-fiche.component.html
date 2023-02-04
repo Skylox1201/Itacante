@@ -1,19 +1,21 @@
-<div class="card mb-3 fiche-card">
-    <div class="row no-gutters">
-        <div class="col-4">
-            <img class="card-img img-fluid fiche-image" [src]="fiche.imageUrl" [alt]="fiche.imageUrl"> <!--Image de la créature-->
-        </div>  
-        <div class="col-8">
-            <div class="card-body">
-                    <h5 class="card-title">{{ fiche.name | titlecase}}</h5><!--nom de l'article-->
-                <hr>
-                <p>{{ fiche.description }}</p>
-            </div>
-            <div class="card-footer">
-                <div class="btn-group">
-                    <a type="button" class="btn btn-sm btn-secondary" routerLink="/fiches">Voir toute les fiche</a>
+<main>
+    <div class="card mb-3 fiche-card">
+        <div class="row no-gutters">
+            <div class="col-4">
+                <img class="card-img img-fluid fiche-image" [src]="fiche.imageUrl" [alt]="fiche.imageUrl"> <!--Image de la créature-->
+            </div>  
+            <div class="col-8">
+                <div class="card-body">
+                        <h5 class="card-title">{{ fiche.name | titlecase}}</h5><!--nom de l'article-->
+                    <hr>
+                    <p>{{ fiche.description }}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="btn-group">
+                        <a type="button" class="btn btn-sm btn-secondary" routerLink="/fiches">Voir toute les fiche</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</main>

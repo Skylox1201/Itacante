@@ -9,8 +9,10 @@ import { FicheComponent } from './fiche/fiche.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { FicheListComponent } from './fiche-list/fiche-list.component';
 import { HeaderComponent } from './header/header.component';
-import { FicheByTypeComponent } from './fiche-by-type/fiche-by-type.component';
 import { SingleFicheComponent } from './single-fiche/single-fiche.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
+import { FicheCreateComponent } from './fiche-create/fiche-create.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,16 @@ import { SingleFicheComponent } from './single-fiche/single-fiche.component';
     FicheComponent,
     AccueilComponent,
     FicheListComponent,
+    FicheCreateComponent,
     HeaderComponent,
-    FicheByTypeComponent,
-    SingleFicheComponent
+    SingleFicheComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide : LOCALE_ID, useValue : 'fr-FR'}

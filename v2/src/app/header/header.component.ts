@@ -14,6 +14,6 @@ export class HeaderComponent implements OnInit {
   }
 
   onContinue(): void{
-    this.router.navigateByUrl("")
+    this.router.navigateByUrl("");
   }
 }

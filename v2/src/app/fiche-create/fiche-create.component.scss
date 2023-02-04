@@ -1,0 +1,36 @@
+input, select {
+    min-width: 150px;
+}
+
+textarea {
+    min-width: 250px;
+}
+
+button.ita-btn-secondary-table{
+    background-color:#6c757d
+}
+
+button.ita-btn-secondary-table:hover{
+    background-color:#5c636a
+}
+button.ita-btn-danger-table{
+    background-color:#dc3545
+}
+
+button.ita-btn-danger-table:hover{
+    background-color:#bb2d3b
+}
+
+.tab-pane {
+    border: 3px solid #9B3325;
+    border-bottom: 20px;
+    background-color: #EBD6A7;
+    padding: 30px;
+}
+
+nav{
+    background-color: black;
+    button{
+        color: white;
+    }
+  }

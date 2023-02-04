@@ -1,0 +1,33 @@
+<main>
+    <div class="container text-center"style="min-height:100vh">
+        <div class="row align-items-center justify-content-center" style="min-height:80vh">
+            <div class="w-50 bg-dark p-5">
+                <form #sigunForm="ngForm" (ngSubmit)="onSubmitForm(sigunForm)">
+                    <a href="">
+                        <img class="mb-4" src="./assets/media/italogo.png" alt="Logo" width="72" height="57">
+                    </a>
+                    <h1 class="h3 mb-3 fw-normal text-white">S'inscrire</h1>
+                    
+                    <div class="form-floating mb-4">
+                        <input id="usernameInput" name="userPseudo" type="text" class="form-control" placeholder="Username"  data-form-type="username" [(ngModel)]="userPseudo">
+                        <label for="usernameInput">Nom d'utilisateur</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input name="userEmail" type="email" class="form-control" id="emailInput" placeholder="name@example.com" data-form-type="email" [(ngModel)]="userEmail">
+                        <label for="emailInput">Addresse Email</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input name="userPassword" type="password" class="form-control" id="passwordInput" placeholder="Password"  data-form-type="password" [(ngModel)]="userPassword">
+                        <label for="passwordInput">Mot de passe</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input name="userPasswordVerif" type="password" class="form-control" id="passwordVerifInput" placeholder="Password Verification"  data-form-type="password" [(ngModel)]="userPasswordVerif">
+                        <label for="passwordVerifInput">Verification mot de passe</label>
+                    </div>
+                    <hr>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Se connecter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
